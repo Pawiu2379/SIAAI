@@ -1,2 +1,2 @@
 # MyOwnJarvis
-The project of personal home asistant nameg Kiki
+The project of personal home asistant named Kiki
