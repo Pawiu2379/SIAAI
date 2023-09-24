@@ -1,2 +1,6 @@
-from network.network import Network
-print(Network.arp())
+from network import main as Network
+from voice import main as Voice
+
+
+
+Voice.speak("Hello World")

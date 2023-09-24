@@ -29,6 +29,7 @@ class Network:
 
 
     def arp():
+#TODO: make it working properly that function shuold return a list of all the devices on the network.
         ip_add_range_pattern = re.compile("^(?:[0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]*$")
         ip = socket.gethostbyname(socket.gethostname())
         ip_address = ipaddress.ip_address(ip)
