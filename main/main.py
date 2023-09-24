@@ -1,3 +1,2 @@
-import network
-
-network.arp(network.myadress(),network.pattern())
+from network.network import Network
+print(Network.arp())
