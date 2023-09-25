@@ -1,27 +1,27 @@
 #TODO: database connection, import config file
-
 import pymongo
-import sys
-import os
+import json
+database = {
+  "name":"SIAAI",
+  "collection":"request",
+  "client":"mongodb://localhost:27017/"
+}
 
-# Get the parent directory of the current script (myscript.py)
-parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+myclient = pymongo.MongoClient(database["client"])
 
-# Add the parent directory (/main/) to the Python path
-sys.path.append(parent_dir)
-from .. import config
-database =config.database
-
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-
-mydb = myclient[database.name]
+mydb = myclient[database["name"]]
 
 dblist = myclient.list_database_names()
-if "SIAAI" in dblist:
+if database["name"] in dblist:
   print("The database exists.")
 
-mycol = mydb[database.collections.request]
+mycol = mydb[database["collection"]]
 
 collist = mydb.list_collection_names()
-if "request" in collist:
+if database["collection"] in collist:
   print("The collection exists.")
+
+def insertin(mydict):
+  mydict.dumps(mydict)
+  x = mycol.insert_one(mydict)
+  print("succesfully inserted in database id =" + x.inserted_id)

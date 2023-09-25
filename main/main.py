@@ -1,5 +1,7 @@
-from network import main as Network
-from voice import main as Voice
+from network import main as network
+from voice import main as voice
+from database import main as database
 
-Voice.listen()
+task = voice.listen()
+database.insertin(task)
 
